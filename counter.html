@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Character Counter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="counter.html" aria-current="page">Counter</a>
+      <a href="shopping-list.html">Shopping List</a>
+      <a href="calculator.html">Calculator</a>
+    </nav>
+
+    <main>
+      <form id="tweet-form" class="card">
+        <h1>Character Counter</h1>
+
+        <textarea id="tweet" placeholder="What is happening?" aria-label="Your message" data-state="ok"></textarea>
+
+        <div class="counter-row">
+          <span id="counter" data-state="ok">0/280 characters</span>
+          <button id="submit" type="submit" class="btn" disabled>Post</button>
+        </div>
+
+        <p id="message" class="success-message" hidden></p>
+      </form>
+    </main>
+
+    <script src="counter.js"></script>
+  </body>
+</html>

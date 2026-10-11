@@ -1,0 +1,345 @@
+/* Shared styles for all three apps */
+
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --border: #d0d5dd;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --warn: #d35400;
+  --danger: #c62828;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- Layout ---------- */
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+main {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+/* ---------- Shared controls ---------- */
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn:disabled {
+  background: #b8bfcc;
+  cursor: not-allowed;
+}
+
+.btn-small {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #a31515;
+}
+
+/* ---------- Task 1: Character counter ---------- */
+
+#tweet {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+}
+
+#counter {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* The data-state attribute is set in counter.js: "ok", "warning" or "over" */
+#counter[data-state="warning"] {
+  color: var(--warn);
+}
+
+#counter[data-state="over"] {
+  color: var(--danger);
+}
+
+#tweet[data-state="warning"] {
+  border-color: var(--warn);
+}
+
+#tweet[data-state="over"] {
+  border-color: var(--danger);
+}
+
+.success-message {
+  margin: 0.75rem 0 0;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* ---------- Task 2: Shopping list ---------- */
+
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr 5rem auto;
+  gap: 0.5rem;
+}
+
+.error-message {
+  min-height: 1.5rem;
+  margin: 0.5rem 0 0;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+.remaining {
+  margin: 0.5rem 0;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.empty-message {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+#item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#item-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+#item-list li:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+  word-break: break-word;
+}
+
+.item-qty {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Bought items: strikethrough and grey text */
+#item-list li.bought .item-name,
+#item-list li.bought .item-qty {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* ---------- Task 3: Calculator ---------- */
+
+.calculator {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.display {
+  min-height: 5.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: #1f2430;
+  color: #fff;
+  text-align: right;
+  overflow: hidden;
+}
+
+.display-expression {
+  min-height: 1.5rem;
+  color: #aab2c5;
+  font-size: 0.95rem;
+}
+
+.display-value {
+  font-size: 2.25rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.key {
+  padding: 1rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.key:hover {
+  background: #eef0f4;
+}
+
+.key:active {
+  transform: scale(0.97);
+}
+
+.key-operator {
+  background: #e8eefc;
+  color: var(--accent-dark);
+}
+
+.key-clear {
+  background: #fdeaea;
+  color: var(--danger);
+}
+
+.key-equals {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.key-equals:hover {
+  background: var(--accent-dark);
+}
+
+.key-wide {
+  grid-column: span 2;
+}
+
+.key-clear {
+  grid-column: span 3;
+}
+
+.hint {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ---------- Home page ---------- */
+
+.app-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.app-links a {
+  display: block;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-links a:hover {
+  background: #eef0f4;
+}

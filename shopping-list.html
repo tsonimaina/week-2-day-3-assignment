@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="counter.html">Counter</a>
+      <a href="shopping-list.html" aria-current="page">Shopping List</a>
+      <a href="calculator.html">Calculator</a>
+    </nav>
+
+    <main>
+      <div class="card">
+        <h1>Shopping List</h1>
+
+        <form id="add-form" class="add-form" novalidate>
+          <input id="item-name" type="text" placeholder="Item name" aria-label="Item name" />
+          <input id="item-qty" type="number" value="1" min="1" aria-label="Quantity" />
+          <button type="submit" class="btn">Add Item</button>
+        </form>
+        <p id="error" class="error-message" role="alert"></p>
+
+        <p id="remaining" class="remaining">0 items remaining</p>
+        <ul id="item-list"></ul>
+        <p id="empty" class="empty-message">Your list is empty. Add something above.</p>
+      </div>
+    </main>
+
+    <script src="shopping-list.js"></script>
+  </body>
+</html>
