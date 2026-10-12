@@ -2,7 +2,7 @@
 
 Three small browser apps built with plain HTML, CSS and JavaScript, focused on the DOM: selecting elements, listening for events and updating the page.
 
-**Live demo:** 
+**Live demo:** ´https://tsonimaina.ggithub.io/week-2-day-3-assignment/´
 
 | App | Page | Script |
 | --- | ---- | ------ |
